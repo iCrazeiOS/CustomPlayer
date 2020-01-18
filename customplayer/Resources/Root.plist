@@ -58,8 +58,8 @@
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>cellClass</key>
-			<string>SparkColourPickerCell</string>
-			<key>libsparkcolourpicker</key>
+			<string>PFSimpleLiteColorCell</string>
+			<key>libcolorpicker</key>
 			<dict>
 				<key>defaults</key>
 				<string>com.icraze.customplayercolours</string>
@@ -68,12 +68,10 @@
 				<key>fallback</key>
 				<string>#ff0000</string>
 				<key>alpha</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>label</key>
-			<string>Colour</string>
-			<key>key</key>
-			<string>kSolidColour</string>
+			<string>Solid Colour</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -97,8 +95,8 @@
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>cellClass</key>
-			<string>SparkColourPickerCell</string>
-			<key>libsparkcolourpicker</key>
+			<string>PFSimpleLiteColorCell</string>
+			<key>libcolorpicker</key>
 			<dict>
 				<key>defaults</key>
 				<string>com.icraze.customplayercolours</string>
@@ -107,19 +105,17 @@
 				<key>fallback</key>
 				<string>#ff0000</string>
 				<key>alpha</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>label</key>
 			<string>First Gradient Colour</string>
-			<key>key</key>
-			<string>kFirstColour</string>
 		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>cellClass</key>
-			<string>SparkColourPickerCell</string>
-			<key>libsparkcolourpicker</key>
+			<string>PFSimpleLiteColorCell</string>
+			<key>libcolorpicker</key>
 			<dict>
 				<key>defaults</key>
 				<string>com.icraze.customplayercolours</string>
@@ -128,12 +124,10 @@
 				<key>fallback</key>
 				<string>#ff0000</string>
 				<key>alpha</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>label</key>
 			<string>Second Gradient Colour</string>
-			<key>key</key>
-			<string>kSecondColour</string>
 		</dict>
 		<dict>
 			<key>cell</key>

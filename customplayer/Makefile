@@ -1,4 +1,4 @@
-ARCHS = arm64
+ARCHS = arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
 
@@ -8,7 +8,7 @@ CustomPlayer_FILES = ICRRootListController.m
 CustomPlayer_INSTALL_PATH = /Library/PreferenceBundles
 CustomPlayer_FRAMEWORKS = UIKit
 CustomPlayer_PRIVATE_FRAMEWORKS = Preferences
-CustomPlayer_LIBRARIES = sparkcolourpicker
+CustomPlayer_LIBRARIES = colorpicker
 CustomPlayer_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk

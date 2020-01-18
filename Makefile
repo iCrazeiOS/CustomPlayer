@@ -7,7 +7,7 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = CustomPlayer
 
 CustomPlayer_FILES = Tweak.xm
-CustomPlayer_LIBRARIES = sparkcolourpicker
+CustomPlayer_LIBRARIES = colorpicker
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 SUBPROJECTS += customplayer

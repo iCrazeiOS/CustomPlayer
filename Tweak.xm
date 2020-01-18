@@ -1,5 +1,5 @@
 // Import Libraries
-#import <SparkColourPickerUtils.h>
+#import <libcolorpicker.h>
 
 // Define The Version Check (Used In ctor)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -45,12 +45,12 @@ static void loadPrefs() {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colour
-				NSString* kSolidColour = [colourPrefs objectForKey: @"kSolidColour"];
+				NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
 				// Create The Gradient View
 				CAGradientLayer *gradient = [CAGradientLayer layer];
 
 				gradient.frame = self.superview.bounds;
-				gradient.colors = @[(id)[[SparkColourPickerUtils colourWithString: kSolidColour withFallback: @"#ff0000"] CGColor], (id)[[SparkColourPickerUtils colourWithString: kSolidColour withFallback: @"#ff0000"] CGColor]];
+				gradient.colors = @[(id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = self.layer.cornerRadius;
 
 				// Add The Gradient View
@@ -59,13 +59,13 @@ static void loadPrefs() {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colours
-				NSString* kFirstColour = [colourPrefs objectForKey: @"kFirstColour"];
-				NSString* kSecondColour = [colourPrefs objectForKey: @"kSecondColour"];
+				NSString *kFirstColour = [colourPrefs objectForKey:@"kFirstColour"];
+				NSString *kSecondColour = [colourPrefs objectForKey:@"kSecondColour"];
 				// Create The Gradient View
 			   	CAGradientLayer *gradient = [CAGradientLayer layer];
 
 				gradient.frame = self.superview.bounds;
-				gradient.colors = @[(id)[[SparkColourPickerUtils colourWithString: kFirstColour withFallback: @"#ff0000"] CGColor], (id)[[SparkColourPickerUtils colourWithString: kSecondColour withFallback: @"#ff0000"] CGColor]];
+				gradient.colors = @[(id)[LCPParseColorString(kFirstColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSecondColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = self.layer.cornerRadius;
 
 				// Add The Gradient View
@@ -100,12 +100,12 @@ static void loadPrefs() {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colour
-				NSString* kSolidColour = [colourPrefs objectForKey: @"kSolidColour"];
+				NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
 				// Create The Gradient View
 				CAGradientLayer *gradient = [CAGradientLayer layer];
 
 				gradient.frame = self.superview.bounds;
-				gradient.colors = @[(id)[[SparkColourPickerUtils colourWithString: kSolidColour withFallback: @"#ff0000"] CGColor], (id)[[SparkColourPickerUtils colourWithString: kSolidColour withFallback: @"#ff0000"] CGColor]];
+				gradient.colors = @[(id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = 16.5;
 
 				// Add The Gradient View
@@ -114,14 +114,14 @@ static void loadPrefs() {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colours
-				NSString* kFirstColour = [colourPrefs objectForKey: @"kFirstColour"];
-				NSString* kSecondColour = [colourPrefs objectForKey: @"kSecondColour"];
+				NSString *kFirstColour = [colourPrefs objectForKey:@"kFirstColour"];
+				NSString *kSecondColour = [colourPrefs objectForKey:@"kSecondColour"];
 
 				// Create The Gradient View
 			   	CAGradientLayer *gradient = [CAGradientLayer layer];
 
 				gradient.frame = self.superview.bounds;
-				gradient.colors = @[(id)[[SparkColourPickerUtils colourWithString: kFirstColour withFallback: @"#ff0000"] CGColor], (id)[[SparkColourPickerUtils colourWithString: kSecondColour withFallback: @"#ff0000"] CGColor]];
+				gradient.colors = @[(id)[LCPParseColorString(kFirstColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSecondColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = 16.5;
 
 				// Add The Gradient View
