@@ -1,0 +1,9 @@
+Package: com.icraze.customplayer
+Name: CustomPlayer
+Depends: mobilesubstrate, com.spark.libsparkcolourpicker
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Customise Your Media Player!
+Maintainer: iCraze
+Author: iCraze
+Section: Tweaks
