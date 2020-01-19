@@ -1,5 +1,6 @@
 // Import Libraries
 #import <libcolorpicker.h>
+#import <Cephei/HBPreferences.h>
 
 // Define The Version Check (Used In ctor)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -13,23 +14,15 @@
 @property (nonatomic, assign, readwrite, getter = isHidden) BOOL hidden;
 @end
 
+
 // Preferences
-static NSMutableDictionary *prefs;
-static bool kEnabled;
-static bool kSolidEnabled;
-static bool kGradientEnabled;
-static bool kHidePlayer;
+NSMutableDictionary *colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
+HBPreferences *prefs;
 
-NSMutableDictionary* colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
-
-// loadPrefs Method
-static void loadPrefs() {
-	prefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayerprefs.plist"];
-	kEnabled = [prefs valueForKey:@"kEnabled"] ? [[prefs valueForKey:@"kEnabled"] boolValue] : YES;
-	kSolidEnabled = [prefs valueForKey:@"kSolidEnabled"] ? [[prefs valueForKey:@"kSolidEnabled"] boolValue] : YES;
-	kGradientEnabled = [prefs valueForKey:@"kGradientEnabled"] ? [[prefs valueForKey:@"kGradientEnabled"] boolValue] : YES;
-	kHidePlayer = [prefs valueForKey:@"kHidePlayer"] ? [[prefs valueForKey:@"kHidePlayer"] boolValue] : YES;
-}
+BOOL kEnabled;
+BOOL kHidePlayer;
+BOOL kSolidEnabled;
+BOOL kGradientEnabled;
 
 // iOS 13 Code
 %group iOS13
@@ -143,9 +136,16 @@ static void loadPrefs() {
 	%end
 %end
 
+extern NSString *const HBPreferencesDidChangeNotification;
+
 %ctor {
-	// Load Preferences
-	loadPrefs();
+	// Preferences
+	prefs = [[HBPreferences alloc] initWithIdentifier:@"com.icraze.customplayerprefs"];
+    
+    [prefs registerBool:&kEnabled default:NO forKey:@"kEnabled"];
+    [prefs registerBool:&kHidePlayer default:NO forKey:@"kHidePlayer"];
+    [prefs registerBool:&kSolidEnabled default:NO forKey:@"kSolidEnabled"];
+    [prefs registerBool:&kGradientEnabled default:NO forKey:@"kGradientEnabled"];
 	// iOS Version Check
 	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
 		// Run iOS 13 Code

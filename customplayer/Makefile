@@ -8,6 +8,7 @@ CustomPlayer_FILES = ICRRootListController.m
 CustomPlayer_INSTALL_PATH = /Library/PreferenceBundles
 CustomPlayer_FRAMEWORKS = UIKit
 CustomPlayer_PRIVATE_FRAMEWORKS = Preferences
+$(BUNDLE_NAME)_EXTRA_FRAMEWORKS = Cephei CepheiPrefs
 CustomPlayer_LIBRARIES = colorpicker
 CustomPlayer_CFLAGS = -fobjc-arc
 
