@@ -14,15 +14,59 @@
 @property (nonatomic, assign, readwrite, getter = isHidden) BOOL hidden;
 @end
 
+@interface MediaControlsMaterialView : UIView
+@end
+
+@interface SPTNowPlayingCoverArtCell : UIView
+@end
+
+@interface MusicHookOne : UIView
+@end
+
 
 // Preferences
 NSMutableDictionary *colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
 HBPreferences *prefs;
 
 BOOL kEnabled;
+BOOL kCCEnabled;
+BOOL kSpotifyEnabled;
 BOOL kHidePlayer;
 BOOL kSolidEnabled;
 BOOL kGradientEnabled;
+
+// Spotify Code
+%group Spotify
+	%hook SPTNowPlayingCoverArtCell
+	-(void)layoutSubviews {
+		%orig;
+		// Declare The Colour
+		NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
+		self.superview.backgroundColor = LCPParseColorString(kSolidColour, @"#ff0000");
+	}
+	%end
+%end
+
+// iOS 13 CC Code
+%group iOS13CC
+	// Hook The Media Player In The CC
+	%hook MediaControlsMaterialView
+	-(void)setFrame:(CGRect)arg1 {
+		// Run The Original Code
+		%orig;
+		// Hide The Blur View
+		self.hidden = YES;
+		// Declare The Colour
+		NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
+
+		// Set The Background Colour
+		self.superview.backgroundColor = LCPParseColorString(kSolidColour, @"#ff0000");
+
+		// Set The Corner Radius
+		self.superview.layer.cornerRadius = 16.5;
+	}
+	%end
+%end
 
 // iOS 13 Code
 %group iOS13
@@ -34,7 +78,7 @@ BOOL kGradientEnabled;
 		// Make Sure It Only Modifies The Media Player
 		if ([self.superview class] == objc_getClass("PLPlatterView")) {
 			// Make Sure The Right Options Are Enabled
-			if (kEnabled && kSolidEnabled && !kHidePlayer) {
+			if (kSolidEnabled && !kHidePlayer) {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colour
@@ -48,7 +92,7 @@ BOOL kGradientEnabled;
 
 				// Add The Gradient View
 				[self.superview.layer insertSublayer:gradient atIndex:0];
-			} else if (kEnabled && kGradientEnabled && !kHidePlayer) {
+			} else if (kGradientEnabled && !kHidePlayer) {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colours
@@ -71,11 +115,32 @@ BOOL kGradientEnabled;
 	// Hide Media Player On iOS 13
 	%hook CSNowPlayingController
 	-(id)controlsViewController {
-		if (kEnabled && kHidePlayer) {
+		if (kHidePlayer) {
 			return nil;
 		} else {
 			return %orig;
 		}
+	}
+	%end
+%end
+
+// iOS 12 CC Code
+%group iOS12CC
+	// Hook The Media Player In The CC
+	%hook MediaControlsMaterialView
+	-(void)setFrame:(CGRect)arg1 {
+		// Run The Original Code
+		%orig;
+		// Hide The Blur View
+		self.hidden = YES;
+		// Declare The Colour
+		NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
+
+		// Set The Background Colour
+		self.superview.backgroundColor = LCPParseColorString(kSolidColour, @"#ff0000");
+
+		// Set The Corner Radius
+		self.superview.layer.cornerRadius = 16.5;
 	}
 	%end
 %end
@@ -89,7 +154,7 @@ BOOL kGradientEnabled;
 		// Make Sure It Only Modifies The Media Player
 		if ([self.superview class] == objc_getClass("SBDashBoardAdjunctItemPlatterView")) {
 			// Make Sure The Right Options Are Enabled
-			if (kEnabled && kSolidEnabled && !kHidePlayer) {
+			if (kSolidEnabled && !kHidePlayer) {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colour
@@ -103,7 +168,7 @@ BOOL kGradientEnabled;
 
 				// Add The Gradient View
 				[self.superview.superview.layer insertSublayer:gradient atIndex:0];
-			} else if (kEnabled && kGradientEnabled && !kHidePlayer) {
+			} else if (kGradientEnabled && !kHidePlayer) {
 				// Hide The Blur
 				self.hidden = YES;
 				// Declare The Colours
@@ -127,7 +192,7 @@ BOOL kGradientEnabled;
 	// Hide Media Player On iOS 12
 	%hook SBDashBoardAdjunctItemView
 	-(id)initWithRecipe:(NSInteger)arg1 options:(NSUInteger)arg2 {
-		if (kEnabled && kHidePlayer) {
+		if (kHidePlayer) {
 			return nil;
 		} else {
 			return %orig;
@@ -143,15 +208,31 @@ extern NSString *const HBPreferencesDidChangeNotification;
 	prefs = [[HBPreferences alloc] initWithIdentifier:@"com.icraze.customplayerprefs"];
     
     [prefs registerBool:&kEnabled default:NO forKey:@"kEnabled"];
+    [prefs registerBool:&kCCEnabled default:NO forKey:@"kCCEnabled"];
+    [prefs registerBool:&kSpotifyEnabled default:NO forKey:@"kSpotifyEnabled"];
     [prefs registerBool:&kHidePlayer default:NO forKey:@"kHidePlayer"];
     [prefs registerBool:&kSolidEnabled default:NO forKey:@"kSolidEnabled"];
     [prefs registerBool:&kGradientEnabled default:NO forKey:@"kGradientEnabled"];
+    
+    if (kEnabled && kSpotifyEnabled) {
+    	%init(Spotify);
+	}
 	// iOS Version Check
 	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
 		// Run iOS 13 Code
-		%init(iOS13);
+		if (kEnabled) {
+			%init(iOS13);
+			if (kCCEnabled) {
+				%init(iOS13CC);
+			}
+		}
 	} else {
 		// Run iOS 12 Code
-		%init(iOS12);
+		if (kEnabled) {
+			%init(iOS12);
+			if (kCCEnabled) {
+				%init(iOS12CC);
+			}
+		}
 	}
 }

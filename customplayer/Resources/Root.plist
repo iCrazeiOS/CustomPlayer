@@ -7,6 +7,16 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			</dict>
+			<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>headerCellClass</key>
+			<string>ICRBannerCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>CustomPlayer</string>
 			<key>footerText</key>
@@ -20,7 +30,7 @@
 			<key>defaults</key>
 			<string>com.icraze.customplayerprefs</string>
 			<key>PostNotifcation</key>
-			<string>com.icraze.haptigram-prefsreload</string>
+			<string>com.icraze.customplayer-prefsreload</string>
 			<key>key</key>
 			<string>kEnabled</string>
 			<key>label</key>
@@ -34,11 +44,39 @@
 			<key>defaults</key>
 			<string>com.icraze.customplayerprefs</string>
 			<key>PostNotifcation</key>
-			<string>com.icraze.haptigram-prefsreload</string>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kCCEnabled</string>
+			<key>label</key>
+			<string>Use Solid Colour In CC Media Module</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kSpotifyEnabled</string>
+			<key>label</key>
+			<string>Use Solid Colour In Spotify</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
 			<key>key</key>
 			<string>kHidePlayer</string>
 			<key>label</key>
-			<string>Hide Media Player</string>
+			<string>Hide Lockscreen Media Player</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -54,7 +92,7 @@
 			<key>defaults</key>
 			<string>com.icraze.customplayerprefs</string>
 			<key>PostNotifcation</key>
-			<string>com.icraze.haptigram-prefsreload</string>
+			<string>com.icraze.customplayer-prefsreload</string>
 			<key>key</key>
 			<string>kSolidEnabled</string>
 			<key>label</key>
@@ -93,7 +131,7 @@
 			<key>defaults</key>
 			<string>com.icraze.customplayerprefs</string>
 			<key>PostNotifcation</key>
-			<string>com.icraze.haptigram-prefsreload</string>
+			<string>com.icraze.customplayer-prefsreload</string>
 			<key>key</key>
 			<string>kGradientEnabled</string>
 			<key>label</key>
@@ -174,6 +212,20 @@
 			<string>PSButtonCell</string>
 			<key>label</key>
 			<string>Patreon</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Icon/Banner Designer</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>jannik:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Jannik</string>
 		</dict>
 		<dict>
 			<key>cell</key>
