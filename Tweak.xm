@@ -20,9 +20,6 @@
 @interface SPTNowPlayingCoverArtCell : UIView
 @end
 
-@interface MusicHookOne : UIView
-@end
-
 
 // Preferences
 NSMutableDictionary *colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
@@ -34,6 +31,8 @@ BOOL kSpotifyEnabled;
 BOOL kHidePlayer;
 BOOL kSolidEnabled;
 BOOL kGradientEnabled;
+BOOL kBorderEnabled;
+BOOL kCCBorderEnabled;
 
 // Spotify Code
 %group Spotify
@@ -64,6 +63,15 @@ BOOL kGradientEnabled;
 
 		// Set The Corner Radius
 		self.superview.layer.cornerRadius = 16.5;
+
+		if (kCCBorderEnabled) {
+			// Declare The Colour
+			NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+			// Set The Border Colour
+			self.superview.layer.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+			// Set The Border Width
+			self.superview.layer.borderWidth = 3.0f;
+		}
 	}
 	%end
 %end
@@ -90,6 +98,15 @@ BOOL kGradientEnabled;
 				gradient.colors = @[(id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = self.layer.cornerRadius;
 
+				if (kBorderEnabled) {
+					// Declare The Colour
+					NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+					// Set The Border Colour
+					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+					// Set The Border Width
+					gradient.borderWidth = 3.0f;
+				}
+
 				// Add The Gradient View
 				[self.superview.layer insertSublayer:gradient atIndex:0];
 			} else if (kGradientEnabled && !kHidePlayer) {
@@ -104,6 +121,15 @@ BOOL kGradientEnabled;
 				gradient.frame = self.superview.bounds;
 				gradient.colors = @[(id)[LCPParseColorString(kFirstColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSecondColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = self.layer.cornerRadius;
+
+				if (kBorderEnabled) {
+					// Declare The Colour
+					NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+					// Set The Border Colour
+					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+					// Set The Border Width
+					gradient.borderWidth = 3.0f;
+				}
 
 				// Add The Gradient View
 				[self.superview.layer insertSublayer:gradient atIndex:0];
@@ -141,6 +167,15 @@ BOOL kGradientEnabled;
 
 		// Set The Corner Radius
 		self.superview.layer.cornerRadius = 16.5;
+
+		if (kCCBorderEnabled) {
+			// Declare The Colour
+			NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+			// Set The Border Colour
+			self.superview.layer.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+			// Set The Border Width
+			self.superview.layer.borderWidth = 3.0f;
+		}
 	}
 	%end
 %end
@@ -166,6 +201,15 @@ BOOL kGradientEnabled;
 				gradient.colors = @[(id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = 16.5;
 
+				if (kBorderEnabled) {
+					// Declare The Colour
+					NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+					// Set The Border Colour
+					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+					// Set The Border Width
+					gradient.borderWidth = 3.0f;
+				}
+
 				// Add The Gradient View
 				[self.superview.superview.layer insertSublayer:gradient atIndex:0];
 			} else if (kGradientEnabled && !kHidePlayer) {
@@ -181,6 +225,15 @@ BOOL kGradientEnabled;
 				gradient.frame = self.superview.bounds;
 				gradient.colors = @[(id)[LCPParseColorString(kFirstColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSecondColour, @"#ff0000") CGColor]];
 				gradient.cornerRadius = 16.5;
+
+				if (kBorderEnabled) {
+					// Declare The Colour
+					NSString *kBorderColour = [colourPrefs objectForKey:@"kBorderColour"];
+					// Set The Border Colour
+					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
+					// Set The Border Width
+					gradient.borderWidth = 3.0f;
+				}
 
 				// Add The Gradient View
 				[self.superview.superview.layer insertSublayer:gradient atIndex:0];
@@ -213,6 +266,8 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kHidePlayer default:NO forKey:@"kHidePlayer"];
     [prefs registerBool:&kSolidEnabled default:NO forKey:@"kSolidEnabled"];
     [prefs registerBool:&kGradientEnabled default:NO forKey:@"kGradientEnabled"];
+    [prefs registerBool:&kBorderEnabled default:NO forKey:@"kBorderEnabled"];
+    [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
     
     if (kEnabled && kSpotifyEnabled) {
     	%init(Spotify);

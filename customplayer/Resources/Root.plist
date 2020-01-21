@@ -18,7 +18,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>CustomPlayer</string>
+			<string>CustomPlayer Options</string>
 			<key>footerText</key>
 			<string>If Changes Do Not Apply, Try Respringing Twice.</string>
 		</dict>
@@ -174,6 +174,59 @@
 			</dict>
 			<key>label</key>
 			<string>Second Gradient Colour</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Border</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kBorderEnabled</string>
+			<key>label</key>
+			<string>Enabled (Media Player)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kCCBorderEnabled</string>
+			<key>label</key>
+			<string>Enabled (CC Media Module)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>PFSimpleLiteColorCell</string>
+			<key>libcolorpicker</key>
+			<dict>
+				<key>defaults</key>
+				<string>com.icraze.customplayercolours</string>
+				<key>key</key>
+				<string>kBorderColour</string>
+				<key>fallback</key>
+				<string>#ff0000</string>
+				<key>alpha</key>
+				<true/>
+			</dict>
+			<key>label</key>
+			<string>Border Colour</string>
 		</dict>
 		<dict>
 			<key>cell</key>
