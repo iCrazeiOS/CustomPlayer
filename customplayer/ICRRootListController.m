@@ -22,10 +22,6 @@
 	posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 }
 
--(void)twitter:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.twitter.com/iCrazeiOS"] options:@{} completionHandler:nil];
-}
-
 -(void)email:(id)sender {
 	UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
 	pasteboard.string = @"iCrazeiOS@protonmail.com";
@@ -37,19 +33,6 @@
 	[alert addAction:ok];
 	[self presentViewController:alert animated:YES completion:nil];
 }
-
--(void)paypal:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://paypal.me/iCrazeiOS/2"] options:@{} completionHandler:nil];
-}
-
--(void)patreon:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.patreon.com/join/iCrazeiOS?"] options:@{} completionHandler:nil];
-}
-
--(void)jannik:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.twitter.com/JannikCrack"] options:@{} completionHandler:nil];
-}
-
 @end
 
 @implementation ICRBannerCell
