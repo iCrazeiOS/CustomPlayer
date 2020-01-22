@@ -235,12 +235,42 @@
 			<string>Contact/Support</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>twitter:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
+			<key>big</key>
+    			<true/>
+    			<key>cellClass</key>
+    			<string>HBTwitterCell</string>
+			<key>height</key>
+    			<integer>50</integer>
+    			<key>user</key>
+    			<string>iCrazeiOS</string>
+		</dict>
+		<dict>
+			<key>big</key>
+    			<true/>
+    			<key>cellClass</key>
+    			<string>HBLinkTableCell</string>
+    			<key>height</key>
+    			<integer>50</integer>
 			<key>label</key>
-			<string>Twitter</string>
+			<string>PayPal</string>
+			<key>url</key>
+			<string>https://paypal.me/iCrazeiOS/2</string>
+			<key>icon</key>
+			<string>.png</string>
+		</dict>
+		<dict>
+			<key>big</key>
+    			<true/>
+    			<key>cellClass</key>
+    			<string>HBLinkTableCell</string>
+    			<key>height</key>
+    			<integer>50</integer>
+			<key>label</key>
+			<string>Patreon</string>
+			<key>url</key>
+			<string>https://www.patreon.com/join/iCrazeiOS</string>
+			<key>icon</key>
+			<string>.png</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -251,34 +281,20 @@
 			<string>Email</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>paypal:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>PayPal</string>
-		</dict>
-		<dict>
-			<key>action</key>
-			<string>patreon:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Patreon</string>
-		</dict>
-		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Icon/Banner Designer</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>jannik:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Jannik</string>
+			<key>big</key>
+    			<true/>
+    			<key>cellClass</key>
+    			<string>HBTwitterCell</string>
+			<key>height</key>
+    			<integer>50</integer>
+    			<key>user</key>
+    			<string>JannikCrack</string>
 		</dict>
 		<dict>
 			<key>cell</key>
