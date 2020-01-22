@@ -104,15 +104,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kSolidColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kSolidColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Solid Colour</string>
@@ -144,14 +144,14 @@
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
 			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kFirstColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kFirstColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>First Gradient Colour</string>
@@ -162,15 +162,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kSecondColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kSecondColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Second Gradient Colour</string>
@@ -215,15 +215,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kBorderColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kBorderColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Border Colour</string>
@@ -236,21 +236,23 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    			<true/>
-    			<key>cellClass</key>
-    			<string>HBTwitterCell</string>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBTwitterCell</string>
 			<key>height</key>
-    			<integer>50</integer>
-    			<key>user</key>
-    			<string>iCrazeiOS</string>
+    	<integer>50</integer>
+			<key>label</key>
+			<string>Follow Me On Twitter</string>
+    	<key>user</key>
+    	<string>iCrazeiOS</string>
 		</dict>
 		<dict>
 			<key>big</key>
-    			<true/>
-    			<key>cellClass</key>
-    			<string>HBLinkTableCell</string>
-    			<key>height</key>
-    			<integer>50</integer>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBLinkTableCell</string>
+    	<key>height</key>
+    	<integer>50</integer>
 			<key>label</key>
 			<string>PayPal</string>
 			<key>url</key>
@@ -260,11 +262,11 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    			<true/>
-    			<key>cellClass</key>
-    			<string>HBLinkTableCell</string>
-    			<key>height</key>
-    			<integer>50</integer>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBLinkTableCell</string>
+    	<key>height</key>
+    	<integer>50</integer>
 			<key>label</key>
 			<string>Patreon</string>
 			<key>url</key>
@@ -288,13 +290,15 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    			<true/>
-    			<key>cellClass</key>
-    			<string>HBTwitterCell</string>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBTwitterCell</string>
 			<key>height</key>
-    			<integer>50</integer>
-    			<key>user</key>
-    			<string>JannikCrack</string>
+    	<integer>50</integer>
+			<key>label</key>
+			<string>Follow Them On Twitter</string>
+    	<key>user</key>
+    	<string>JannikCrack</string>
 		</dict>
 		<dict>
 			<key>cell</key>

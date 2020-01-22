@@ -1,5 +1,22 @@
 #include "ICRRootListController.h"
+#import <CepheiPrefs/HBAppearanceSettings.h>
+#import <UIKit/UIKit.h>
 #import <spawn.h>
+
+@interface HBPackageNameHeaderCell : PSTableCell
+@end
+
+@interface HBTintedTableCell : PSTableCell
+@end
+
+@interface HBLinkTableCell : HBTintedTableCell
+@end
+
+@interface HBTwitterCell : HBLinkTableCell
+@end
+
+@interface HBImageTableCell : PSTableCell
+@end
 
 @implementation ICRRootListController
 
@@ -56,3 +73,5 @@
 	return imgView.frame.size.height - 35;
 }
 @end
+
+// vim:ft=objc

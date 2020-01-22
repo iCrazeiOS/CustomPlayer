@@ -1,6 +1,12 @@
 #import <Preferences/PSListController.h>
+#import <Foundation/Foundation.h>
+#import <Preferences/PSSpecifier.h>
+#import <CepheiPrefs/HBRootListController.h>
+#import <CepheiPrefs/HBAppearanceSettings.h>
+#import <Cephei/HBPreferences.h>
 
-@interface ICRRootListController : PSListController
+@interface ICRRootListController : HBListController
+- (void)respring:(id)sender;
 
 @end
 

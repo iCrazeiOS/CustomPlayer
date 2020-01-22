@@ -1,6 +1,8 @@
 // Import Libraries
 #import <libcolorpicker.h>
 #import <Cephei/HBPreferences.h>
+#import <CepheiPrefs/HBRootListController.h>
+#import <CepheiPrefs/HBAppearanceSettings.h>
 
 // Define The Version Check (Used In ctor)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -259,7 +261,7 @@ extern NSString *const HBPreferencesDidChangeNotification;
 %ctor {
 	// Preferences
 	prefs = [[HBPreferences alloc] initWithIdentifier:@"com.icraze.customplayerprefs"];
-    
+
     [prefs registerBool:&kEnabled default:NO forKey:@"kEnabled"];
     [prefs registerBool:&kCCEnabled default:NO forKey:@"kCCEnabled"];
     [prefs registerBool:&kSpotifyEnabled default:NO forKey:@"kSpotifyEnabled"];
@@ -268,7 +270,7 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kGradientEnabled default:NO forKey:@"kGradientEnabled"];
     [prefs registerBool:&kBorderEnabled default:NO forKey:@"kBorderEnabled"];
     [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
-    
+
     if (kEnabled && kSpotifyEnabled) {
     	%init(Spotify);
 	}
