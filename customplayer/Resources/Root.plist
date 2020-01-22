@@ -104,15 +104,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kSolidColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kSolidColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Solid Colour</string>
@@ -144,14 +144,14 @@
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
 			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kFirstColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kFirstColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>First Gradient Colour</string>
@@ -162,15 +162,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kSecondColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kSecondColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Second Gradient Colour</string>
@@ -215,15 +215,15 @@
 			<key>cellClass</key>
 			<string>PFSimpleLiteColorCell</string>
 			<key>libcolorpicker</key>
-			<dict>
-				<key>defaults</key>
-				<string>com.icraze.customplayercolours</string>
-				<key>key</key>
-				<string>kBorderColour</string>
-				<key>fallback</key>
-				<string>#ff0000</string>
-				<key>alpha</key>
-				<true/>
+		<dict>
+			<key>defaults</key>
+			<string>com.icraze.customplayercolours</string>
+			<key>key</key>
+			<string>kBorderColour</string>
+			<key>fallback</key>
+			<string>#ff0000</string>
+			<key>alpha</key>
+			<true/>
 			</dict>
 			<key>label</key>
 			<string>Border Colour</string>
@@ -235,12 +235,44 @@
 			<string>Contact/Support</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>twitter:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
+			<key>big</key>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBTwitterCell</string>
+			<key>height</key>
+    	<integer>50</integer>
 			<key>label</key>
-			<string>Twitter</string>
+			<string>Follow Me On Twitter</string>
+    	<key>user</key>
+    	<string>iCrazeiOS</string>
+		</dict>
+		<dict>
+			<key>big</key>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBLinkTableCell</string>
+    	<key>height</key>
+    	<integer>50</integer>
+			<key>label</key>
+			<string>PayPal</string>
+			<key>url</key>
+			<string>https://paypal.me/iCrazeiOS/2</string>
+			<key>icon</key>
+			<string>.png</string>
+		</dict>
+		<dict>
+			<key>big</key>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBLinkTableCell</string>
+    	<key>height</key>
+    	<integer>50</integer>
+			<key>label</key>
+			<string>Patreon</string>
+			<key>url</key>
+			<string>https://www.patreon.com/join/iCrazeiOS</string>
+			<key>icon</key>
+			<string>.png</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -251,34 +283,22 @@
 			<string>Email</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>paypal:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>PayPal</string>
-		</dict>
-		<dict>
-			<key>action</key>
-			<string>patreon:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Patreon</string>
-		</dict>
-		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Icon/Banner Designer</string>
 		</dict>
 		<dict>
-			<key>action</key>
-			<string>jannik:</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
+			<key>big</key>
+    	<true/>
+    	<key>cellClass</key>
+    	<string>HBTwitterCell</string>
+			<key>height</key>
+    	<integer>50</integer>
 			<key>label</key>
-			<string>Jannik</string>
+			<string>Follow Them On Twitter</string>
+    	<key>user</key>
+    	<string>JannikCrack</string>
 		</dict>
 		<dict>
 			<key>cell</key>
