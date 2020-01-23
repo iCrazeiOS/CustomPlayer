@@ -4,9 +4,6 @@
 #import <CepheiPrefs/HBRootListController.h>
 #import <CepheiPrefs/HBAppearanceSettings.h>
 
-// Define The Version Check (Used In ctor)
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-
 // Interfaces
 @interface MTMaterialView : UIView
 @property (nonatomic, assign, readwrite, getter = isHidden) BOOL hidden;
@@ -271,25 +268,26 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kBorderEnabled default:NO forKey:@"kBorderEnabled"];
     [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
 
-    if (kEnabled && kSpotifyEnabled) {
+    if (!kEnabled) {
+        return;
+    }
+
+    if (kSpotifyEnabled) {
     	%init(Spotify);
 	}
 	// iOS Version Check
-	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
+	if(kCFCoreFoundationVersionNumber > 1600) {
 		// Run iOS 13 Code
-		if (kEnabled) {
-			%init(iOS13);
-			if (kCCEnabled) {
-				%init(iOS13CC);
-			}
+		%init(iOS13);
+		if (kCCEnabled) {
+			%init(iOS13CC);
 		}
+		
 	} else {
 		// Run iOS 12 Code
-		if (kEnabled) {
-			%init(iOS12);
-			if (kCCEnabled) {
-				%init(iOS12CC);
-			}
+		%init(iOS12);
+		if (kCCEnabled) {
+			%init(iOS12CC);
 		}
 	}
 }
