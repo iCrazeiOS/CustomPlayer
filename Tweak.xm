@@ -271,25 +271,25 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kBorderEnabled default:NO forKey:@"kBorderEnabled"];
     [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
 
-    if (kEnabled && kSpotifyEnabled) {
+    if (!kEnabled) {
+        return;
+    }
+
+    if (kSpotifyEnabled) {
     	%init(Spotify);
 	}
 	// iOS Version Check
 	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
 		// Run iOS 13 Code
-		if (kEnabled) {
-			%init(iOS13);
-			if (kCCEnabled) {
-				%init(iOS13CC);
-			}
+		%init(iOS13);
+		if (kCCEnabled) {
+			%init(iOS13CC);
 		}
 	} else {
 		// Run iOS 12 Code
-		if (kEnabled) {
-			%init(iOS12);
-			if (kCCEnabled) {
-				%init(iOS12CC);
-			}
+		%init(iOS12);
+		if (kCCEnabled) {
+			%init(iOS12CC);
 		}
 	}
 }
