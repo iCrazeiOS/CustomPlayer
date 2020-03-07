@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kCCEnabled</string>
+			<key>label</key>
+			<string>Use Solid Colour In CC Media Module</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kSpotifyEnabled</string>
+			<key>label</key>
+			<string>Use Solid Colour In Spotify</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>PostNotifcation</key>
+			<string>com.icraze.customplayer-prefsreload</string>
+			<key>key</key>
+			<string>kHidePlayer</string>
+			<key>label</key>
+			<string>Hide Lockscreen Media Player</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Respring</string>
+			<key>footerText</key>
+			<string>© 2020 iCraze</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respring:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Test</string>
+</dict>
+</plist>

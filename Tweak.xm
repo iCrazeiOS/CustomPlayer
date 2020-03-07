@@ -19,12 +19,20 @@
 @interface MediaControlsMaterialView : UIView
 @end
 
+@interface SPTNowPlayingScrollCell : UIView
+@end
+
 @interface SPTNowPlayingCoverArtCell : UIView
 @end
 
+@interface _UIVisualEffectSubview : UIView
+@property (nonatomic, assign, readwrite) CGFloat alpha;
+-(id)_viewControllerForAncestor;
+@end
 
 // Preferences
 NSMutableDictionary *colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
+float lyricifyAlpha = [[[NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayerprefs.plist"] objectForKey:@"lyricifyAlpha"] floatValue];
 HBPreferences *prefs;
 
 BOOL kEnabled;
@@ -35,15 +43,67 @@ BOOL kSolidEnabled;
 BOOL kGradientEnabled;
 BOOL kBorderEnabled;
 BOOL kCCBorderEnabled;
+BOOL kLyricifyEnabled;
 
 // Spotify Code
 %group Spotify
+	%hook SPTNowPlayingScrollCell
+	-(void)layoutSubviews {
+		%orig;
+		// Declare The Colour
+		NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
+		self.superview.backgroundColor = LCPParseColorString(kSolidColour, @"#ff0000");
+	}
+	%end
+
 	%hook SPTNowPlayingCoverArtCell
 	-(void)layoutSubviews {
 		%orig;
 		// Declare The Colour
 		NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
 		self.superview.backgroundColor = LCPParseColorString(kSolidColour, @"#ff0000");
+	}
+	%end
+%end
+
+// Lyricify Code
+%group Lyricify
+	%hook _UIVisualEffectSubview
+	-(void)layoutSubviews {
+		%orig;
+
+		UIViewController* ancestorVC;
+
+		ancestorVC = [self _viewControllerForAncestor];
+
+		if (([ancestorVC isKindOfClass: %c(LyricifyLyricViewController)])) {
+			if (kSolidEnabled) {
+				NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
+
+				CAGradientLayer *gradient = [CAGradientLayer layer];
+
+				gradient.frame = self.bounds;
+				gradient.colors = @[(id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSolidColour, @"#ff0000") CGColor]];
+				gradient.cornerRadius = self.layer.cornerRadius;
+				
+				[self.superview.superview.layer insertSublayer:gradient atIndex:0];
+
+				self.alpha = lyricifyAlpha/100;
+			} else if (kGradientEnabled) {
+				NSString *kFirstColour = [colourPrefs objectForKey:@"kFirstColour"];
+				NSString *kSecondColour = [colourPrefs objectForKey:@"kSecondColour"];
+
+				CAGradientLayer *gradient = [CAGradientLayer layer];
+
+				gradient.frame = self.bounds;
+				gradient.colors = @[(id)[LCPParseColorString(kFirstColour, @"#ff0000") CGColor], (id)[LCPParseColorString(kSecondColour, @"#ff0000") CGColor]];
+				gradient.cornerRadius = self.layer.cornerRadius;
+					
+				[self.superview.layer insertSublayer:gradient atIndex:0];
+
+				self.alpha = lyricifyAlpha/100;
+			}
+		}
 	}
 	%end
 %end
@@ -85,8 +145,8 @@ BOOL kCCBorderEnabled;
 	-(void)setFrame:(CGRect)arg1 {
 		// Run The Original Code
 		%orig;
-		// Make Sure It Only Modifies The Media Player
-		if ([self.superview class] == objc_getClass("PLPlatterView")) {
+		// Make Sure It Only Modifies The Media Player, And Check That Flow Is Not Installed
+		if (([self.superview class] == objc_getClass("PLPlatterView")) && (![[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/Flow.dylib"])) {
 			// Make Sure The Right Options Are Enabled
 			if (kSolidEnabled && !kHidePlayer) {
 				// Hide The Blur
@@ -270,6 +330,7 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kGradientEnabled default:NO forKey:@"kGradientEnabled"];
     [prefs registerBool:&kBorderEnabled default:NO forKey:@"kBorderEnabled"];
     [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
+    [prefs registerBool:&kLyricifyEnabled default:NO forKey:@"kLyricifyEnabled"];
 
     if (!kEnabled) {
         return;
@@ -278,6 +339,11 @@ extern NSString *const HBPreferencesDidChangeNotification;
     if (kSpotifyEnabled) {
     	%init(Spotify);
 	}
+
+	if (kLyricifyEnabled) {
+		%init(Lyricify);
+	}
+	
 	// iOS Version Check
 	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
 		// Run iOS 13 Code

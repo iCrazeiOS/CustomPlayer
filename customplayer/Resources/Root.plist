@@ -37,197 +37,55 @@
 			<string>Enabled</string>
 		</dict>
 		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kCCEnabled</string>
-			<key>label</key>
-			<string>Use Solid Colour In CC Media Module</string>
-		</dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>Solid Colour</string>
+            <key>detail</key>
+            <string>ICRSolidController</string>
+            <key>isController</key>
+            <true/>
+        </dict>
 		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kSpotifyEnabled</string>
-			<key>label</key>
-			<string>Use Solid Colour In Spotify</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kHidePlayer</string>
-			<key>label</key>
-			<string>Hide Lockscreen Media Player</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Solid Colour</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kSolidEnabled</string>
-			<key>label</key>
-			<string>Enabled</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSLinkCell</string>
-			<key>cellClass</key>
-			<string>PFSimpleLiteColorCell</string>
-			<key>libcolorpicker</key>
-		<dict>
-			<key>defaults</key>
-			<string>com.icraze.customplayercolours</string>
-			<key>key</key>
-			<string>kSolidColour</string>
-			<key>fallback</key>
-			<string>#ff0000</string>
-			<key>alpha</key>
-			<true/>
-			</dict>
-			<key>label</key>
-			<string>Solid Colour</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Gradient</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kGradientEnabled</string>
-			<key>label</key>
-			<string>Enabled</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSLinkCell</string>
-			<key>cellClass</key>
-			<string>PFSimpleLiteColorCell</string>
-			<key>libcolorpicker</key>
-			<dict>
-			<key>defaults</key>
-			<string>com.icraze.customplayercolours</string>
-			<key>key</key>
-			<string>kFirstColour</string>
-			<key>fallback</key>
-			<string>#ff0000</string>
-			<key>alpha</key>
-			<true/>
-			</dict>
-			<key>label</key>
-			<string>First Gradient Colour</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSLinkCell</string>
-			<key>cellClass</key>
-			<string>PFSimpleLiteColorCell</string>
-			<key>libcolorpicker</key>
-		<dict>
-			<key>defaults</key>
-			<string>com.icraze.customplayercolours</string>
-			<key>key</key>
-			<string>kSecondColour</string>
-			<key>fallback</key>
-			<string>#ff0000</string>
-			<key>alpha</key>
-			<true/>
-			</dict>
-			<key>label</key>
-			<string>Second Gradient Colour</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Border</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kBorderEnabled</string>
-			<key>label</key>
-			<string>Enabled (Media Player)</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.icraze.customplayerprefs</string>
-			<key>PostNotifcation</key>
-			<string>com.icraze.customplayer-prefsreload</string>
-			<key>key</key>
-			<string>kCCBorderEnabled</string>
-			<key>label</key>
-			<string>Enabled (CC Media Module)</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSLinkCell</string>
-			<key>cellClass</key>
-			<string>PFSimpleLiteColorCell</string>
-			<key>libcolorpicker</key>
-		<dict>
-			<key>defaults</key>
-			<string>com.icraze.customplayercolours</string>
-			<key>key</key>
-			<string>kBorderColour</string>
-			<key>fallback</key>
-			<string>#ff0000</string>
-			<key>alpha</key>
-			<true/>
-			</dict>
-			<key>label</key>
-			<string>Border Colour</string>
-		</dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>Gradient</string>
+            <key>detail</key>
+            <string>ICRGradientController</string>
+            <key>isController</key>
+            <true/>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>Border</string>
+            <key>detail</key>
+            <string>ICRBorderController</string>
+            <key>isController</key>
+            <true/>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>Lyricify Support</string>
+            <key>detail</key>
+            <string>ICRLyricifyController</string>
+            <key>isController</key>
+            <true/>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>Miscellaneous</string>
+            <key>detail</key>
+            <string>ICRMiscController</string>
+            <key>isController</key>
+            <true/>
+        </dict>
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -236,23 +94,23 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    	<true/>
-    	<key>cellClass</key>
-    	<string>HBTwitterCell</string>
+	    	<true/>
+	    	<key>cellClass</key>
+	    	<string>HBTwitterCell</string>
 			<key>height</key>
-    	<integer>50</integer>
+	    	<integer>50</integer>
 			<key>label</key>
 			<string>Follow Me On Twitter</string>
-    	<key>user</key>
-    	<string>iCrazeiOS</string>
+	    	<key>user</key>
+	    	<string>iCrazeiOS</string>
 		</dict>
 		<dict>
 			<key>big</key>
-    	<true/>
-    	<key>cellClass</key>
-    	<string>HBLinkTableCell</string>
-    	<key>height</key>
-    	<integer>50</integer>
+	    	<true/>
+	    	<key>cellClass</key>
+	    	<string>HBLinkTableCell</string>
+	    	<key>height</key>
+	    	<integer>50</integer>
 			<key>label</key>
 			<string>PayPal</string>
 			<key>url</key>
@@ -262,11 +120,11 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    	<true/>
-    	<key>cellClass</key>
-    	<string>HBLinkTableCell</string>
-    	<key>height</key>
-    	<integer>50</integer>
+	    	<true/>
+	    	<key>cellClass</key>
+	    	<string>HBLinkTableCell</string>
+	    	<key>height</key>
+	    	<integer>50</integer>
 			<key>label</key>
 			<string>Patreon</string>
 			<key>url</key>
@@ -290,15 +148,15 @@
 		</dict>
 		<dict>
 			<key>big</key>
-    	<true/>
-    	<key>cellClass</key>
-    	<string>HBTwitterCell</string>
+	    	<true/>
+	    	<key>cellClass</key>
+	    	<string>HBTwitterCell</string>
 			<key>height</key>
-    	<integer>50</integer>
+	    	<integer>50</integer>
 			<key>label</key>
-			<string>Follow Them On Twitter</string>
-    	<key>user</key>
-    	<string>JannikCrack</string>
+			<string>JannikCrack</string>
+	    	<key>user</key>
+	    	<string>JannikCrack</string>
 		</dict>
 		<dict>
 			<key>cell</key>

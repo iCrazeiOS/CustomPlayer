@@ -7,7 +7,21 @@
 
 @interface ICRRootListController : HBListController
 - (void)respring:(id)sender;
+@end
 
+@interface ICRSolidController : HBListController
+@end
+
+@interface ICRGradientController : HBListController
+@end
+
+@interface ICRBorderController : HBListController
+@end
+
+@interface ICRLyricifyController : HBListController
+@end
+
+@interface ICRMiscController : HBListController
 @end
 
 #define screenWidth [[UIScreen mainScreen] bounds].size.width
