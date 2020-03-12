@@ -6,6 +6,14 @@
 	<array>
 		<dict>
 			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string></string>
+			<key>footerText</key>
+			<string>Border Width May Need Two Resprings To Take Affect</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
 			<false/>
@@ -50,6 +58,24 @@
 			</dict>
 			<key>label</key>
 			<string>Border Colour</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBStepperTableCell</string>
+			<key>default</key>
+			<real>3</real>
+			<key>defaults</key>
+			<string>com.icraze.customplayerprefs</string>
+			<key>key</key>
+			<string>kBorderWidth</string>
+			<key>label</key>
+			<string>Border Width: %i</string>
+			<key>max</key>
+			<real>20</real>
+			<key>min</key>
+			<real>1</real>
+			<key>singularLabel</key>
+			<string>Border Width: 1</string>
 		</dict>
 		<dict>
 			<key>cell</key>

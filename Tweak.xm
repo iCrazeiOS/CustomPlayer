@@ -32,7 +32,8 @@
 
 // Preferences
 NSMutableDictionary *colourPrefs = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayercolours.plist"];
-float lyricifyAlpha = [[[NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayerprefs.plist"] objectForKey:@"lyricifyAlpha"] floatValue];
+float kLyricifyAlpha = [[[NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayerprefs.plist"] objectForKey:@"kLyricifyAlpha"] floatValue];
+float kBorderWidth = [[[NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.icraze.customplayerprefs.plist"] objectForKey:@"kBorderWidth"] floatValue];
 HBPreferences *prefs;
 
 BOOL kEnabled;
@@ -88,7 +89,7 @@ BOOL kLyricifyEnabled;
 				
 				[self.superview.superview.layer insertSublayer:gradient atIndex:0];
 
-				self.alpha = lyricifyAlpha/100;
+				self.alpha = kLyricifyAlpha/100;
 			} else if (kGradientEnabled) {
 				NSString *kFirstColour = [colourPrefs objectForKey:@"kFirstColour"];
 				NSString *kSecondColour = [colourPrefs objectForKey:@"kSecondColour"];
@@ -101,7 +102,7 @@ BOOL kLyricifyEnabled;
 					
 				[self.superview.layer insertSublayer:gradient atIndex:0];
 
-				self.alpha = lyricifyAlpha/100;
+				self.alpha = kLyricifyAlpha/100;
 			}
 		}
 	}
@@ -166,7 +167,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = 3.0f;
+					gradient.borderWidth = kBorderWidth;;
 				}
 
 				// Add The Gradient View
@@ -190,7 +191,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = 3.0f;
+					gradient.borderWidth = kBorderWidth;
 				}
 
 				// Add The Gradient View
@@ -269,7 +270,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = 3.0f;
+					gradient.borderWidth = kBorderWidth;;
 				}
 
 				// Add The Gradient View
@@ -294,7 +295,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = 3.0f;
+					gradient.borderWidth = kBorderWidth;;
 				}
 
 				// Add The Gradient View

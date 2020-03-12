@@ -32,7 +32,7 @@
     		<key>cellClass</key>
     		<string>HBDiscreteSliderTableCell</string>
 			<key>key</key>
-			<string>lyricifyAlpha</string>
+			<string>kLyricifyAlpha</string>
 			<key>defaults</key>
 			<string>com.icraze.customplayerprefs</string>
 			<key>PostNotifcation</key>
