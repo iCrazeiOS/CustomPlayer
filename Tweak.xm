@@ -133,7 +133,7 @@ BOOL kLyricifyEnabled;
 			// Set The Border Colour
 			self.superview.layer.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 			// Set The Border Width
-			self.superview.layer.borderWidth = 3.0f;
+			self.superview.layer.borderWidth = kBorderWidth;
 		}
 	}
 	%end
@@ -167,7 +167,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = kBorderWidth;;
+					gradient.borderWidth = kBorderWidth;
 				}
 
 				// Add The Gradient View
@@ -237,7 +237,7 @@ BOOL kLyricifyEnabled;
 			// Set The Border Colour
 			self.superview.layer.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 			// Set The Border Width
-			self.superview.layer.borderWidth = 3.0f;
+			self.superview.layer.borderWidth = kBorderWidth;
 		}
 	}
 	%end
@@ -270,7 +270,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = kBorderWidth;;
+					gradient.borderWidth = kBorderWidth;
 				}
 
 				// Add The Gradient View
@@ -295,7 +295,7 @@ BOOL kLyricifyEnabled;
 					// Set The Border Colour
 					gradient.borderColor = [LCPParseColorString(kBorderColour, @"#ff0000") CGColor];
 					// Set The Border Width
-					gradient.borderWidth = kBorderWidth;;
+					gradient.borderWidth = kBorderWidth;
 				}
 
 				// Add The Gradient View
