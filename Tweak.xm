@@ -360,4 +360,4 @@ extern NSString *const HBPreferencesDidChangeNotification;
 		}
 	}
 }
-//Quix was here
+// Quix was here
