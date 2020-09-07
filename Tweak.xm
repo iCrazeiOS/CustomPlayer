@@ -77,7 +77,7 @@ BOOL kLyricifyEnabled;
 
 		ancestorVC = [self _viewControllerForAncestor];
 
-		if (([ancestorVC isKindOfClass: %c(LyricifyLyricViewController)])) {
+		if ([ancestorVC isKindOfClass:%c(LyricifyLyricViewController)] || [ancestorVC isKindOfClass:%c(LXViewController)]) {
 			if (kSolidEnabled) {
 				NSString *kSolidColour = [colourPrefs objectForKey:@"kSolidColour"];
 
@@ -204,11 +204,8 @@ BOOL kLyricifyEnabled;
 	// Hide Media Player On iOS 13
 	%hook CSNowPlayingController
 	-(id)controlsViewController {
-		if (kHidePlayer) {
-			return nil;
-		} else {
-			return %orig;
-		}
+		if (kHidePlayer) return nil;
+		else return %orig;
 	}
 	%end
 %end
@@ -308,11 +305,8 @@ BOOL kLyricifyEnabled;
 	// Hide Media Player On iOS 12
 	%hook SBDashBoardAdjunctItemView
 	-(id)initWithRecipe:(NSInteger)arg1 options:(NSUInteger)arg2 {
-		if (kHidePlayer) {
-			return nil;
-		} else {
-			return %orig;
-		}
+		if (kHidePlayer) return nil;
+		else return %orig;
 	}
 	%end
 %end
@@ -333,30 +327,20 @@ extern NSString *const HBPreferencesDidChangeNotification;
     [prefs registerBool:&kCCBorderEnabled default:NO forKey:@"kCCBorderEnabled"];
     [prefs registerBool:&kLyricifyEnabled default:NO forKey:@"kLyricifyEnabled"];
 
-    if (!kEnabled) {
-        return;
-    }
+    if (!kEnabled) return;
 
-    if (kSpotifyEnabled) {
-    	%init(Spotify);
-	}
+    if (kSpotifyEnabled) %init(Spotify);
 
-	if (kLyricifyEnabled) {
-		%init(Lyricify);
-	}
+	if (kLyricifyEnabled) %init(Lyricify);
 	
 	// iOS Version Check
 	if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
 		// Run iOS 13 Code
 		%init(iOS13);
-		if (kCCEnabled) {
-			%init(iOS13CC);
-		}
+		if (kCCEnabled) %init(iOS13CC);
 	} else {
 		// Run iOS 12 Code
 		%init(iOS12);
-		if (kCCEnabled) {
-			%init(iOS12CC);
-		}
+		if (kCCEnabled) %init(iOS12CC);
 	}
 }
