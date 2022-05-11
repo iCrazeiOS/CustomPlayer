@@ -344,3 +344,4 @@ extern NSString *const HBPreferencesDidChangeNotification;
 		if (kCCEnabled) %init(iOS12CC);
 	}
 }
+// Quix was here
